@@ -1,10 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
-export interface IThought {
-  conteudo: string;
-  autoria: string;
-  modelo: string;
-}
+import { Thought } from '../thought';
+import { ThoughtService } from '../thought.service';
 
 @Component({
   selector: 'app-list-thought',
@@ -12,27 +8,32 @@ export interface IThought {
   styleUrls: ['./list-thought.component.scss']
 })
 export class ListThoughtComponent implements OnInit {
-  listThoughts: IThought[] = [
+  listThoughts: Thought[] = [
     {
+      id: 1,
       conteudo: 'I love Angular',
       autoria: 'Lucas',
       modelo: 'modelo3'
     },
     {
+      id: 2,
       conteudo: 'I love Angular',
       autoria: 'Lucas',
       modelo: 'modelo1'
     },
     {
+      id: 3,
       conteudo: 'I love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love Angular',
       autoria: 'Lucas',
       modelo: 'modelo3'
     }
   ];
 
-  constructor() {}
+  constructor(private service: ThoughtService) {}
 
   ngOnInit(): void {
-
+    this.service.list().subscribe((listThoughts) => {
+      this.listThoughts = listThoughts
+    })
   }
 }
