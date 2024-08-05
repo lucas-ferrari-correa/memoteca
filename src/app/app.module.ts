@@ -12,6 +12,7 @@ import { ThoughtComponent } from './components/form/thought/thought.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ExcludeThoughtComponent } from './components/form/exclude-thought/exclude-thought.component';
 import { EditThoughtComponent } from './components/form/edit-thought/edit-thought.component';
+import { ButtonLoadMoreComponent } from './components/form/list-thought/button-load-more/button-load-more.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { EditThoughtComponent } from './components/form/edit-thought/edit-though
     ListThoughtComponent,
     ThoughtComponent,
     ExcludeThoughtComponent,
-    EditThoughtComponent
+    EditThoughtComponent,
+    ButtonLoadMoreComponent
   ],
   imports: [
     BrowserModule,

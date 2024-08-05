@@ -8,32 +8,37 @@ import { ThoughtService } from '../thought.service';
   styleUrls: ['./list-thought.component.scss']
 })
 export class ListThoughtComponent implements OnInit {
-  listThoughts: Thought[] = [
-    {
-      id: 1,
-      conteudo: 'I love Angular',
-      autoria: 'Lucas',
-      modelo: 'modelo3'
-    },
-    {
-      id: 2,
-      conteudo: 'I love Angular',
-      autoria: 'Lucas',
-      modelo: 'modelo1'
-    },
-    {
-      id: 3,
-      conteudo: 'I love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love AngularI love Angular',
-      autoria: 'Lucas',
-      modelo: 'modelo3'
-    }
-  ];
+  listThoughts: Thought[] = [];
+  page: number = 1;
+  hasMoreThought: boolean = true
+  filter: string = ''
 
   constructor(private service: ThoughtService) {}
 
   ngOnInit(): void {
-    this.service.list().subscribe((listThoughts) => {
+    this.service.list(this.page, this.filter).subscribe((listThoughts) => {
       this.listThoughts = listThoughts
     })
+  }
+
+  loadMoreThought() {
+    this.service.list(++this.page, this.filter)
+      .subscribe((listThoughts) => {
+        this.listThoughts.push(...listThoughts)
+
+        if (!listThoughts.length) {
+          this.hasMoreThought = false
+        }
+      })
+  }
+
+  searchThought() {
+    this.hasMoreThought = true;
+    this.page = 1;
+
+    this.service.list(this.page, this.filter)
+      .subscribe((listThoughts) => {
+        this.listThoughts = listThoughts
+      })
   }
 }
