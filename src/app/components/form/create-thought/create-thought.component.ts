@@ -36,7 +36,8 @@ export class CreateThoughtComponent implements OnInit {
           Validators.minLength(3),
         ])
       ],
-      modelo: ['modelo1']
+      modelo: ['modelo1'],
+      liked: [false]
     })
   }
 

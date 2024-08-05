@@ -11,13 +11,17 @@
       >
       <img src="../../../../assets/images/lupa.png" alt="Lupa azul">
     </div>
-    <h2 class="ff-inter">Meu mural</h2>
-    <button routerLink="/create-thought" class="botao">Adicionar pensamento</button>
+    <h2 class="ff-inter">{{ onLiked ? "Meus Favoritos" : "Meu Mural" }}</h2>
+    <div class="botoes">
+      <button class="botao" (click)="changeToNormal()">Meu Mural</button>
+      <button class="botao" (click)="changeToLiked()">Meus Favoritos</button>
+      <button routerLink="/create-thought" class="botao">Novo Pensamento</button>
+    </div>
   </header>
 
   <div class="mural" *ngIf="!!listThoughts?.length; else withoutThought">
     <div *ngFor="let thought of listThoughts">
-      <app-thought [thought]="thought"></app-thought>
+      <app-thought [thought]="thought" [listByLiked]="listByLiked"></app-thought>
     </div>
   </div>
 </section>

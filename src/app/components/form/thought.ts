@@ -3,4 +3,5 @@ export interface Thought {
   conteudo: string
   autoria: string
   modelo: string
+  liked: boolean
 }

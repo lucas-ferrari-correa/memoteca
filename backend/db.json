@@ -4,42 +4,49 @@
       "id": 2,
       "conteudo": "Estudando Angular",
       "autoria": "Lucas Ferrari",
-      "modelo": "modelo3"
+      "modelo": "modelo3",
+      "liked": true
     },
     {
       "id": 3,
       "conteudo": " rgrggggggg Teste",
       "autoria": "Lucas",
-      "modelo": "modelo1"
+      "modelo": "modelo1",
+      "liked": false
     },
     {
       "conteudo": "Vrau",
       "autoria": "Vrei dsgfsfdsfdfdsfsdsd",
       "modelo": "modelo2",
+      "liked": false,
       "id": 4
     },
     {
       "conteudo": "sdfsfds",
       "autoria": "sfdfsdfsdfs",
       "modelo": "modelo1",
+      "liked": false,
       "id": 5
     },
     {
       "conteudo": "fgdgdfgdf",
       "autoria": "bdfbdbdbfbdfbdbdbfbdfbdbdbfbdfbdbdbfbdfbdbdbfbdfbdbdbfbdfbdbdbfbdfbdbdbfbdfbdbdbfbdfbdbdbfbdfbdbdbfbdfbdbdbfbdfbdbdbfbdfbdbdbfbdfbdbdbfbdfbdbdbfbdfbdbdbfbdfbdbdbfbdfbdbdbfbdfbdbdbfbdfbdbdbfbdfbdbdbfbdfbdbdbfbdfbdbdbfbdfbdbdbfbdfbdbdbfbdfbdbdbfbdfbdbdbfbdfbdbdbfbdfbdbdbfbdfbdbdbfbdfbdbdbfbdfbdbdbfbdfbdbdbfbdfbdbdbfbdfbdbdbfbdfbdbdbfbdfbdbdbfbdfbdbdbfbdfbdbdbfbdfbdbdbfbdfbdbdbfbdfbdbdbfbdfbdbdbfbdfbdbdbfbdfbdbdbfbdfbdbdbfbdfbdbdbfbdfbdbdbfbdfbdbdbfbdfbdbdbfbdfbdbdbfbdfbdbdbfbdfbdbdbfbdfbdbdbfbdfbdbdbf",
       "modelo": "modelo3",
+      "liked": false,
       "id": 6
     },
     {
       "conteudo": "fgdfgdfgd",
       "autoria": "dfg",
       "modelo": "modelo1",
+      "liked": false,
       "id": 7
     },
     {
       "conteudo": "foi",
       "autoria": "foi",
       "modelo": "modelo2",
+      "liked": false,
       "id": 8
     }
   ]

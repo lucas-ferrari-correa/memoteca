@@ -13,7 +13,8 @@ export class ExcludeThoughtComponent implements OnInit {
     id: 0,
     conteudo: '',
     autoria: '',
-    modelo: ''
+    modelo: '',
+    liked: false,
   }
 
   constructor(

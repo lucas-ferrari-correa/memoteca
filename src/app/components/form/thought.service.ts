@@ -13,7 +13,7 @@ export class ThoughtService {
     private http: HttpClient,
   ) { }
 
-  list(page: number, filter: string): Observable<Thought[]> {
+  list(page: number, filter: string, liked?: boolean): Observable<Thought[]> {
     const limitPerPage = 6
 
     let params = new HttpParams()
@@ -22,6 +22,10 @@ export class ThoughtService {
 
     if (filter.trim().length > 2) {
       params = params.set("q", filter)
+    }
+
+    if (liked) {
+      params = params.set("liked", liked)
     }
 
     return this.http.get<Thought[]>(this.API, { params })
@@ -41,6 +45,12 @@ export class ThoughtService {
     const url = `${this.API}/${thought.id}`
 
     return this.http.put<Thought>(url, thought)
+  }
+
+  changeLiked(thought: Thought): Observable<Thought> {
+    thought.liked = !thought.liked
+
+    return this.edit(thought)
   }
 
   getById(id: number): Observable<Thought> {

@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Thought } from '../thought';
+import { ThoughtService } from '../thought.service';
 
 @Component({
   selector: 'app-thought',
@@ -9,12 +10,17 @@ import { Thought } from '../thought';
 export class ThoughtComponent implements OnInit {
   @Input() thought: Thought = {
     id: 0,
-    conteudo: 'I love Angular',
-    autoria: 'Lucas',
-    modelo: 'modelo3'
+    conteudo: '',
+    autoria: '',
+    modelo: '',
+    liked: false
   }
 
-  constructor() {}
+  @Input() listByLiked: Thought[] = []
+
+  constructor(
+    private service: ThoughtService
+  ) {}
 
   ngOnInit(): void {
 
@@ -26,5 +32,19 @@ export class ThoughtComponent implements OnInit {
     }
 
     return 'pensamento-p'
+  }
+
+  changeLikedIcon(): string {
+    if (!this.thought.liked) {
+      return 'inativo'
+    }
+
+    return 'ativo'
+  }
+
+  updateLiked() {
+    this.service.changeLiked(this.thought).subscribe(() => {
+      this.listByLiked.splice(this.listByLiked.indexOf(this.thought), 1)
+    });
   }
 }
